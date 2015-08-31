@@ -8,6 +8,13 @@ import java.util.Map;
  */
 public class ObjectListToObject {
 
+    /**
+     * Takes a List of objects and sorts them into a multi-level map using the field
+     * identified by the MapId annotation as the key for the map
+     * @param objects
+     * @return
+     * @throws MultipleMapIdsException
+     */
     public Map<String, Object> listToObject(List<?> objects) throws MultipleMapIdsException {
         if(objects.isEmpty() || objects == null) {
             return new HashMap<String, Object>();
@@ -38,6 +45,13 @@ public class ObjectListToObject {
         return finalObject;
     }
 
+    /**
+     * Sorts the object into the proper bucket using the specified delimiter
+     * @param value
+     * @param obj
+     * @param map
+     * @return a map object
+     */
     public Map<String, Object> addToMap(String value, Object obj, Map<String, Object> map){
         if(value.indexOf(".") == -1) {
             map.put(value, obj);
